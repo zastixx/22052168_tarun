@@ -1,9 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit/dist/configureStore';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit/dist/createSlice';
-import { createAsyncThunk } from '@reduxjs/toolkit/dist/createAsyncThunk';
-import { createEntityAdapter } from '@reduxjs/toolkit/dist/entities';
-import { createSelector } from '@reduxjs/toolkit/dist/createSelector';
-import { api } from '../services/api';
+import {
+    configureStore,
+    createSlice,
+    createAsyncThunk,
+    createEntityAdapter,
+    createSelector,
+    PayloadAction
+  } from '@reduxjs/toolkit';
+  import { api } from '../services/api';
 
 interface Post {
   id: string;
@@ -20,9 +23,7 @@ interface Comment {
   timestamp: string;
 }
 
-const postsAdapter = createEntityAdapter<Post>({
-  selectId: (post) => post.id,
-});
+const postsAdapter = createEntityAdapter<Post>();
 
 export const fetchPosts = createAsyncThunk(
   'social/fetchPosts',
